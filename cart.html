@@ -1,6 +1,30 @@
 <!doctype html>
 <html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" lang="fr-FR"  >
   <head>
+<style id="button-override">
+.sqs-block-button-element,
+.btn,
+.header-actions-action--cta a,
+.header-menu-cta a {
+  border-radius: 50px !important;
+  padding: 14px 36px !important;
+  background-color: hsl(46.82, 100%, 50%) !important;
+  color: #000 !important;
+  border: none !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  transition: background-color 0.2s ease, transform 0.2s ease !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+.sqs-block-button-element:hover,
+.btn:hover,
+.header-actions-action--cta a:hover,
+.header-menu-cta a:hover {
+  background-color: hsl(46.82, 100%, 42%) !important;
+  transform: translateY(-1px) !important;
+}
+</style>
 <style id="color-override">
 :root, [data-section-theme] {
   --accent-hsl: 46.82, 100%, 50% !important;
