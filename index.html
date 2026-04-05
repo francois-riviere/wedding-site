@@ -335,7 +335,7 @@
                 <div class="header-actions-action header-actions-action--cta">
                   <a
                     class="btn btn--border theme-btn--primary-inverse sqs-button-element--primary"
-                    href="rsvp.html"
+                    href="#rsvp"
                     
                   >
                     CONFIRMEZ VOTRE VENUE
@@ -420,7 +420,7 @@
                 <div class="header-actions-action header-actions-action--cta">
                   <a
                     class="btn btn--border theme-btn--primary-inverse sqs-button-element--primary"
-                    href="rsvp.html"
+                    href="#rsvp"
                     
                   >
                     CONFIRMEZ VOTRE VENUE
@@ -481,7 +481,7 @@
             <div class="header-menu-cta">
               <a
                 class="theme-btn--primary btn sqs-button-element--primary"
-                href="rsvp.html"
+                href="#rsvp"
                 
               >
                 CONFIRMEZ VOTRE VENUE
@@ -1140,27 +1140,177 @@ entourés de nos familles.</h3></div>
   <div class="sqs-html-content" data-sqsp-text-block-content><p style="text-align:center;white-space:pre-wrap;font-size:1.1em;margin:0;">Nous espérons vous voir en ce jour si spécial.</p></div>
 
 </div>
-</div></div></div><div class="fe-block fe-block-6f57f37b595fa9af2d16"><div class="sqs-block website-component-block sqs-block-website-component sqs-block-button button-block" data-sqsp-block="button" id="block-6f57f37b595fa9af2d16"><div class="sqs-block-content">
+</div></div></div><div class="fe-block fe-block-6f57f37b595fa9af2d16" id="rsvp"><div class="sqs-block" id="block-6f57f37b595fa9af2d16"><div class="sqs-block-content">
 
-  <div
-    class="sqs-block-button-container  sqs-block-button-container--center sqs-stretched"
-    
-  > 
-    <a 
-      href="rsvp.html" 
-      class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element"
-      data-sqsp-button
-      
-    >
-      CONFIRMEZ VOTRE VENUE
-    </a>
+  <h3 style="text-align:center;white-space:pre-wrap;margin-bottom:0.5em;">CONFIRMEZ VOTRE VENUE</h3>
 
+  <form id="rsvp-form" novalidate>
+    <div class="form-fields" style="display:flex;flex-direction:column;gap:1.2em;max-width:500px;margin:0 auto;">
+
+      <div class="form-field">
+        <label for="field-email" style="display:block;margin-bottom:0.3em;font-weight:600;">Email <span style="color:#c00;">*</span></label>
+        <input type="email" id="field-email" name="email" required
+          style="width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;font-size:1em;font-family:inherit;box-sizing:border-box;" />
+      </div>
+
+      <fieldset style="border:1px solid #ddd;border-radius:6px;padding:1em;margin:0;">
+        <legend style="font-weight:600;padding:0 0.4em;">Vous</legend>
+        <div style="display:flex;flex-direction:column;gap:0.8em;">
+          <div>
+            <label for="field-nom" style="display:block;margin-bottom:0.3em;font-weight:600;">Nom et prénom <span style="color:#c00;">*</span></label>
+            <input type="text" id="field-nom" name="nom" required
+              style="width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;font-size:1em;font-family:inherit;box-sizing:border-box;" />
+          </div>
+          <div>
+            <label for="field-allergies-0" style="display:block;margin-bottom:0.3em;font-weight:600;">Allergies alimentaires</label>
+            <input type="text" id="field-allergies-0" name="allergies_0"
+              style="width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;font-size:1em;font-family:inherit;box-sizing:border-box;" />
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-field">
+        <label for="field-nombre" style="display:block;margin-bottom:0.3em;font-weight:600;">Nombre d'accompagnants</label>
+        <select id="field-nombre" name="nombre_accompagnants"
+          style="width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;font-size:1em;font-family:inherit;background:#fff;">
+          <option value="0" selected>0 — Je viens seul(e)</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div id="accompagnants-container"></div>
+
+      <div class="form-field">
+        <label for="field-transport" style="display:block;margin-bottom:0.3em;font-weight:600;">Comment vous rendrez-vous au mariage ? Avez-vous besoin d'une aide au transport ? (Navette depuis la station de métro Hangangjin)</label>
+        <textarea id="field-transport" name="transport" rows="3"
+          style="width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;font-size:1em;font-family:inherit;resize:vertical;"></textarea>
+      </div>
+
+      <div style="margin-top:0.5em;">
+        <button type="submit" id="rsvp-submit"
+          class="sqs-block-button-element"
+          style="cursor:pointer;font-size:1em;font-family:inherit;">
+          Envoyer
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div id="rsvp-success" style="display:none;text-align:center;padding:2em 1em;">
+    <h3 style="color:#2e7d32;">Merci !</h3>
+    <p>Votre réponse a bien été enregistrée.</p>
   </div>
 
-<style>
-  #block-6f57f37b595fa9af2d16 {--sqs-block-content-flex: 1;
-  }
-</style>
+  <div id="rsvp-error" style="display:none;text-align:center;padding:2em 1em;">
+    <h3 style="color:#c00;">Une erreur est survenue</h3>
+    <p>Votre réponse n'a pas pu être envoyée. Veuillez réessayer ou nous écrire directement à <a href="mailto:neat.milk2258@fastmail.com">neat.milk2258@fastmail.com</a></p>
+  </div>
+
+  <script>
+  (function() {
+    var form = document.getElementById('rsvp-form');
+    var submitBtn = document.getElementById('rsvp-submit');
+    var successDiv = document.getElementById('rsvp-success');
+    var errorDiv = document.getElementById('rsvp-error');
+    var nombreSelect = document.getElementById('field-nombre');
+    var container = document.getElementById('accompagnants-container');
+    var inputStyle = 'width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;font-size:1em;font-family:inherit;box-sizing:border-box;';
+    var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzn2zA36xpCNXYI3qkYspS2LWvuqewTE2PI6uuWMowmqWJTyabwUJVwjOi9_-6f3NSSpA/exec';
+
+    function buildAccompagnantFields(n) {
+      container.innerHTML = '';
+      for (var i = 1; i <= n; i++) {
+        var fs = document.createElement('fieldset');
+        fs.style.cssText = 'border:1px solid #ddd;border-radius:6px;padding:1em;margin:0;';
+        fs.innerHTML =
+          '<legend style="font-weight:600;padding:0 0.4em;">Accompagnant ' + i + '</legend>' +
+          '<div style="display:flex;flex-direction:column;gap:0.8em;">' +
+            '<div>' +
+              '<label style="display:block;margin-bottom:0.3em;font-weight:600;">Nom et pr\u00e9nom <span style="color:#c00;">*</span></label>' +
+              '<input type="text" class="accomp-nom" data-index="' + i + '" style="' + inputStyle + '" />' +
+            '</div>' +
+            '<div>' +
+              '<label style="display:block;margin-bottom:0.3em;font-weight:600;">Allergies alimentaires</label>' +
+              '<input type="text" class="accomp-allergies" data-index="' + i + '" style="' + inputStyle + '" />' +
+            '</div>' +
+          '</div>';
+        container.appendChild(fs);
+      }
+    }
+
+    nombreSelect.addEventListener('change', function() {
+      buildAccompagnantFields(parseInt(this.value));
+    });
+
+    function showError(msg) {
+      errorDiv.querySelector('h3').textContent = 'Champs manquants';
+      errorDiv.querySelector('p').textContent = msg;
+      errorDiv.style.display = 'block';
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      errorDiv.style.display = 'none';
+
+      var nom = document.getElementById('field-nom').value.trim();
+      var email = document.getElementById('field-email').value.trim();
+      var allergies0 = document.getElementById('field-allergies-0').value.trim();
+      var nombre = parseInt(nombreSelect.value);
+
+      if (!nom || !email) {
+        showError('Veuillez remplir tous les champs obligatoires.');
+        return;
+      }
+
+      var accompagnants = [];
+      var accompNoms = container.querySelectorAll('.accomp-nom');
+      var accompAllergies = container.querySelectorAll('.accomp-allergies');
+      for (var i = 0; i < accompNoms.length; i++) {
+        var aN = accompNoms[i].value.trim();
+        if (!aN) {
+          showError('Veuillez indiquer le nom de l\'accompagnant ' + (i + 1) + '.');
+          return;
+        }
+        accompagnants.push({
+          nom: aN,
+          allergies: accompAllergies[i].value.trim()
+        });
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi en cours...';
+
+      var data = {
+        nom: nom,
+        email: email,
+        allergies: allergies0,
+        accompagnants: accompagnants,
+        transport: document.getElementById('field-transport').value.trim()
+      };
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function() {
+        form.style.display = 'none';
+        successDiv.style.display = 'block';
+      })
+      .catch(function() {
+        errorDiv.querySelector('h3').textContent = 'Une erreur est survenue';
+        errorDiv.querySelector('p').innerHTML = 'Votre r\u00e9ponse n\'a pas pu \u00eatre envoy\u00e9e. Veuillez r\u00e9essayer ou nous \u00e9crire directement \u00e0 <a href="mailto:neat.milk2258@fastmail.com">neat.milk2258@fastmail.com</a>';
+        errorDiv.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Envoyer';
+      });
+    });
+  })();
+  </script>
+
 </div></div></div></div></div>
     </div>
   
@@ -1310,64 +1460,7 @@ entourés de nos familles.</h3></div>
 
     </div>
 
-  <script>
-(function() {
-  // Remove wf-loading once fonts load (or after 3s timeout)
-  var wfTimeout = setTimeout(function() {
-    document.documentElement.classList.remove('wf-loading');
-  }, 3000);
 
-  // Header hide on scroll
-  var header = document.getElementById('header');
-  if (header) {
-    var lastY = 0;
-    var ticking = false;
-    window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          var y = window.scrollY;
-          if (y > 80 && y > lastY) {
-            header.style.transform = 'translateY(-100%)';
-            header.style.transition = 'transform 0.35s ease';
-          } else {
-            header.style.transform = '';
-            header.style.transition = 'transform 0.35s ease';
-          }
-          lastY = y;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  }
-
-  // Hamburger menu toggle
-  document.addEventListener('click', function(e) {
-    var btn = e.target.closest('.header-burger-btn');
-    if (!btn) return;
-    e.preventDefault();
-    var body = document.body;
-    var isOpen = body.classList.contains('header--menu-open');
-    if (isOpen) {
-      body.classList.remove('header--menu-open');
-      btn.setAttribute('aria-expanded', 'false');
-    } else {
-      body.classList.add('header--menu-open');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-  });
-
-  // Close menu on nav link click
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.header-menu-nav-item a');
-    if (link) {
-      document.body.classList.remove('header--menu-open');
-      var burger = document.querySelector('.header-burger-btn');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-    }
-  });
-})();
-</script>
 <script>
 (function() {
   // Font loading fallback

@@ -647,64 +647,7 @@
 
     </div>
 
-  <script>
-(function() {
-  // Remove wf-loading once fonts load (or after 3s timeout)
-  var wfTimeout = setTimeout(function() {
-    document.documentElement.classList.remove('wf-loading');
-  }, 3000);
 
-  // Header hide on scroll
-  var header = document.getElementById('header');
-  if (header) {
-    var lastY = 0;
-    var ticking = false;
-    window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          var y = window.scrollY;
-          if (y > 80 && y > lastY) {
-            header.style.transform = 'translateY(-100%)';
-            header.style.transition = 'transform 0.35s ease';
-          } else {
-            header.style.transform = '';
-            header.style.transition = 'transform 0.35s ease';
-          }
-          lastY = y;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  }
-
-  // Hamburger menu toggle
-  document.addEventListener('click', function(e) {
-    var btn = e.target.closest('.header-burger-btn');
-    if (!btn) return;
-    e.preventDefault();
-    var body = document.body;
-    var isOpen = body.classList.contains('header--menu-open');
-    if (isOpen) {
-      body.classList.remove('header--menu-open');
-      btn.setAttribute('aria-expanded', 'false');
-    } else {
-      body.classList.add('header--menu-open');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-  });
-
-  // Close menu on nav link click
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.header-menu-nav-item a');
-    if (link) {
-      document.body.classList.remove('header--menu-open');
-      var burger = document.querySelector('.header-burger-btn');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-    }
-  });
-})();
-</script>
 <script>
 (function() {
   // Font loading fallback
