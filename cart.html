@@ -117,7 +117,23 @@
 <script type="application/ld+json">{"url":"","name":"Yunyoung & François","@context":"http://schema.org","@type":"WebSite"}</script><link rel="stylesheet" type="text/css" href="assets/css/site.css"/><meta name="ROBOTS" content="NOINDEX">
 
     <link rel="stylesheet" type="text/css" href="assets/css/static.css">
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: 'hsl(46.82, 100%, 50%)',
+            'accent-dark': 'hsl(46.82, 100%, 42%)',
+          },
+          fontFamily: {
+            serif: ['orpheus-pro', 'serif'],
+            sans: ['Inter Tight', 'sans-serif'],
+          }
+        }
+      }
+    }
+    </script>
 </head>
 
   <body
